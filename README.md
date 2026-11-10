@@ -133,7 +133,7 @@ All 20 questions from the brief, plus the investment questions (growth by city, 
 * Tracking store: `sqlite:///mlflow.db`, with artifacts in `mlruns/`
 * Two experiments: `RealEstate_GoodInvestment_Classification` and `RealEstate_FuturePrice5Y_Regression`
 * Each run logs: hyper-parameters, all metrics, confusion matrix or actual-vs-predicted plot, a feature-importance plot and JSON, and the full sklearn pipeline with its signature and input example
-* **Model Registry:** the best classifier (by F1) is registered as `GoodInvestmentClassifier`, and the best regressor (by RMSE) as `FuturePrice5YRegressor`. Both carry the alias **`champion`**, so they load with `mlflow.pyfunc.load_model("models:/GoodInvestmentClassifier@champion")`
+* **Model Registry:** the best classifier (by F1, among models with graded probabilities) is registered as `GoodInvestmentClassifier`, and the best regressor (by RMSE) as `FuturePrice5YRegressor`. Both carry the alias **`champion`**, so they load with `mlflow.pyfunc.load_model("models:/GoodInvestmentClassifier@champion")`
 
 ### Step 5 — Streamlit app (`app.py`)
 | Tab | Contents |
@@ -155,10 +155,12 @@ See `reports/eda_findings.md`, `reports/classification_results.csv` and `reports
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
 |---|---|---|---|---|---|
 | Logistic Regression | 0.8839 | 0.8507 | 0.8294 | 0.8399 | 0.9561 |
-| **Decision Tree** 🏆 | **0.99996** | **0.99995** | **0.99995** | **0.99995** | 0.99996 |
+| Decision Tree ¹ | 0.99996 | 0.99995 | 0.99995 | 0.99995 | 0.99996 |
 | Random Forest | 0.99948 | 0.99967 | 0.99891 | 0.99929 | 1.0000 |
 | HistGradientBoosting | 0.99914 | 0.99918 | 0.99848 | 0.99883 | 1.0000 |
-| XGBoost | 0.99972 | 0.99929 | 0.99995 | 0.99962 | 1.0000 |
+| **XGBoost** 🏆 | **0.99972** | **0.99929** | **0.99995** | **0.99962** | **1.0000** |
+
+¹ The single Decision Tree scores marginally higher F1, but its pure leaves give probabilities of exactly 0 or 1, so the app could not show a meaningful confidence. The champion is therefore chosen by F1 among models with graded probabilities (`train.py` excludes `DecisionTree`). Even XGBoost is very confident on most listings, because the label is a deterministic rule: its confidence only drops (to about 82% at the lowest) for properties sitting right on a checklist threshold.
 | LightGBM | 0.99956 | 0.99929 | 0.99951 | 0.99940 | 1.0000 |
 
 **Regression — Future_Price_5Y (₹ Lakhs; price range 10–500 L)**
