@@ -9,3 +9,23 @@
   File "C:\Users\ravin\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
     hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Registered model 'GoodInvestmentClassifier' already exists. Creating a new version of this model...
+Created version '2' of model 'GoodInvestmentClassifier'.
+Registered model 'FuturePrice5YRegressor' already exists. Creating a new version of this model...
+Created version '2' of model 'FuturePrice5YRegressor'.
+Train 200,000 / test 50,000  features=26
+[CLF] LogisticRegression     acc=0.8839 f1=0.8399 auc=0.9561 (2s)
+[CLF] DecisionTree           acc=1.0000 f1=0.9999 auc=1.0000 (5s)
+[CLF] RandomForest           acc=0.9995 f1=0.9993 auc=1.0000 (23s)
+[CLF] HistGradientBoosting   acc=0.9991 f1=0.9988 auc=1.0000 (11s)
+[CLF] XGBoost                acc=0.9997 f1=0.9996 auc=1.0000 (15s)
+[CLF] LightGBM               acc=0.9996 f1=0.9994 auc=1.0000 (10s)
+[REG] LinearRegression       rmse=12.508 mae=9.322 r2=0.99663 (4s)
+[REG] Ridge                  rmse=12.517 mae=9.328 r2=0.99662 (1s)
+[REG] DecisionTree           rmse=10.630 mae=7.530 r2=0.99756 (6s)
+[REG] RandomForest           rmse=8.020 mae=5.654 r2=0.99861 (171s)
+[REG] XGBoost                rmse=6.321 mae=4.464 r2=0.99914 (25s)
+[REG] LightGBM               rmse=6.342 mae=4.487 r2=0.99913 (13s)
+Registered GoodInvestmentClassifier v2 <- XGBoost (f1=0.9996)
+Registered FuturePrice5YRegressor v2 <- XGBoost (rmse=6.3208)
+Saved models + metadata to C:\Users\ravin\Downloads\project 3\models

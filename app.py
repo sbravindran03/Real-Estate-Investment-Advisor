@@ -116,9 +116,9 @@ with tab_pred:
         st.divider()
         m1, m2, m3, m4 = st.columns(4)
         if p_good >= 0.5:
-            m1.success(f"### ✅ Good Investment\nConfidence **{p_good:.1%}**")
+            m1.success(f"### ✅ Good Investment\nConfidence **{p_good:.2%}**")
         else:
-            m1.error(f"### ❌ Not a Good Investment\nConfidence **{1 - p_good:.1%}**")
+            m1.error(f"### ❌ Not a Good Investment\nConfidence **{1 - p_good:.2%}**")
         m2.metric("Estimated price after 5 years", f"₹{fut:,.1f} L", f"+₹{fut - price:,.1f} L")
         m3.metric("Implied annual growth (CAGR)", f"{cagr:.2%}")
         m4.metric("Price per sq ft", f"₹{feat['Price_per_SqFt'].iloc[0]:,.0f}",

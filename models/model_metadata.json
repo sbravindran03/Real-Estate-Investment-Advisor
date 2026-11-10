@@ -28,12 +28,12 @@
   "Availability_Status"
  ],
  "classification": {
-  "best_model": "DecisionTree",
-  "registry": "GoodInvestmentClassifier v1",
+  "best_model": "XGBoost",
+  "registry": "GoodInvestmentClassifier v2",
   "confusion_matrix": [
    [
-    31637,
-    1
+    31625,
+    13
    ],
    [
     1,
@@ -41,32 +41,32 @@
    ]
   ],
   "feature_importance": {
-   "PPSF_vs_City_Median": 0.26971,
-   "Amenity_Count": 0.16773,
-   "Availability_Status": 0.16163,
-   "BHK": 0.1494,
-   "Infrastructure_Score": 0.13717,
-   "Price_vs_City_Median": 0.11436,
-   "City_Growth_Rate": 0.0,
-   "Age_of_Property": 0.0,
-   "Amenity_Density_Score": 0.0,
-   "City": 0.0,
-   "Floor_Ratio": 0.0,
-   "Floor_No": 0.0,
-   "Facing": 0.0,
-   "Has_Security": 0.0,
-   "Nearby_Hospitals": 0.0,
-   "Nearby_Schools": 0.0,
-   "Owner_Type": 0.0,
-   "Furnished_Status": 0.0,
-   "Parking": 0.0,
-   "Price_in_Lakhs": 0.0,
-   "Price_per_SqFt": 0.0,
-   "Property_Type": 0.0,
-   "Size_in_SqFt": 0.0,
-   "State": 0.0,
-   "Total_Floors": 0.0,
-   "Transport_Score": 0.0
+   "Price_vs_City_Median": 0.21708,
+   "Availability_Status": 0.1804,
+   "Amenity_Count": 0.15243,
+   "BHK": 0.15082,
+   "PPSF_vs_City_Median": 0.14541,
+   "Infrastructure_Score": 0.08954,
+   "Price_in_Lakhs": 0.02636,
+   "Amenity_Density_Score": 0.01139,
+   "Price_per_SqFt": 0.00912,
+   "State": 0.00622,
+   "City": 0.00594,
+   "Facing": 0.00082,
+   "Property_Type": 0.00069,
+   "Furnished_Status": 0.00065,
+   "Transport_Score": 0.00039,
+   "Size_in_SqFt": 0.00038,
+   "Nearby_Hospitals": 0.00037,
+   "Owner_Type": 0.0003,
+   "Total_Floors": 0.00028,
+   "Nearby_Schools": 0.00028,
+   "Parking": 0.00026,
+   "City_Growth_Rate": 0.00024,
+   "Age_of_Property": 0.0002,
+   "Floor_Ratio": 0.00018,
+   "Floor_No": 0.00014,
+   "Has_Security": 0.00012
   },
   "leaderboard": [
    {
@@ -76,7 +76,7 @@
     "recall": 0.8294303452782922,
     "f1": 0.8399283055287468,
     "roc_auc": 0.956110449272227,
-    "train_time_sec": 1.6864159107208252
+    "train_time_sec": 1.7597973346710205
    },
    {
     "model": "DecisionTree",
@@ -85,7 +85,7 @@
     "recall": 0.9999455397015575,
     "f1": 0.9999455397015575,
     "roc_auc": 0.9999569660705147,
-    "train_time_sec": 3.97126841545105
+    "train_time_sec": 4.690383195877075
    },
    {
     "model": "RandomForest",
@@ -94,7 +94,7 @@
     "recall": 0.9989107940311512,
     "f1": 0.9992917461182239,
     "roc_auc": 0.9999990480894798,
-    "train_time_sec": 22.03784203529358
+    "train_time_sec": 22.744386434555054
    },
    {
     "model": "HistGradientBoosting",
@@ -103,7 +103,7 @@
     "recall": 0.9984751116436118,
     "f1": 0.9988286889488164,
     "roc_auc": 0.999998473156182,
-    "train_time_sec": 10.54350733757019
+    "train_time_sec": 11.326787233352661
    },
    {
     "model": "XGBoost",
@@ -112,7 +112,7 @@
     "recall": 0.9999455397015575,
     "f1": 0.9996189024390244,
     "roc_auc": 0.9999986831617578,
-    "train_time_sec": 11.90334153175354
+    "train_time_sec": 14.504785537719727
    },
    {
     "model": "LightGBM",
@@ -121,13 +121,13 @@
     "recall": 0.9995098573140181,
     "f1": 0.9994010019603572,
     "roc_auc": 0.999999221946555,
-    "train_time_sec": 7.080486536026001
+    "train_time_sec": 10.051456451416016
    }
   ]
  },
  "regression": {
   "best_model": "XGBoost",
-  "registry": "FuturePrice5YRegressor v1",
+  "registry": "FuturePrice5YRegressor v2",
   "feature_importance": {
    "Price_vs_City_Median": 0.86427,
    "Price_in_Lakhs": 0.09805,
@@ -164,7 +164,7 @@
     "mae": 9.321913850840275,
     "r2": 0.9966250015565743,
     "mape": 5.739454501296339,
-    "train_time_sec": 3.8317699432373047
+    "train_time_sec": 4.190848112106323
    },
    {
     "model": "Ridge",
@@ -173,7 +173,7 @@
     "mae": 9.32826687113527,
     "r2": 0.9966199968021302,
     "mape": 5.766588337779642,
-    "train_time_sec": 1.2528977394104004
+    "train_time_sec": 0.9242796897888184
    },
    {
     "model": "DecisionTree",
@@ -182,16 +182,16 @@
     "mae": 7.5301973654123975,
     "r2": 0.9975622001750449,
     "mape": 2.0504084740615185,
-    "train_time_sec": 6.604430675506592
+    "train_time_sec": 6.278761625289917
    },
    {
     "model": "RandomForest",
-    "rmse": 8.019987752308092,
-    "mse": 64.32020354717179,
+    "rmse": 8.01998775230809,
+    "mse": 64.32020354717177,
     "mae": 5.6543352197182175,
     "r2": 0.9986124137159269,
-    "mape": 1.5208213615640407,
-    "train_time_sec": 134.74271368980408
+    "mape": 1.5208213615640405,
+    "train_time_sec": 171.04481649398804
    },
    {
     "model": "XGBoost",
@@ -200,7 +200,7 @@
     "mae": 4.463666724194336,
     "r2": 0.9991381104719994,
     "mape": 1.258369207616488,
-    "train_time_sec": 15.903616905212402
+    "train_time_sec": 25.081053733825684
    },
    {
     "model": "LightGBM",
@@ -209,7 +209,7 @@
     "mae": 4.486946623102305,
     "r2": 0.9991322419606884,
     "mape": 1.2930790031247168,
-    "train_time_sec": 8.353410959243774
+    "train_time_sec": 13.432172536849976
    }
   ],
   "test_rmse": 6.320763019910508
